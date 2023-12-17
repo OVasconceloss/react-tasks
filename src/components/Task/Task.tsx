@@ -34,7 +34,7 @@ export const Task: React.FC<TaskProps> = ({task, handleDelete}) => {
                     </button>
                 </div>
             </div>
-            {isDescOpen && <DescTask openModal={openModal} />}
+            {isDescOpen && <DescTask openModal={openModal} task={task} />}
         </>
     );
 };

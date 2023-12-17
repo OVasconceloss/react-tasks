@@ -2,10 +2,16 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface ModalProps {
+    task: {
+        completed: boolean,
+        id: string,
+        taskTitle: string,
+        taskDescription: string
+    },
     openModal: () => void;
 }
 
-export const DescTask: React.FC<ModalProps> = ({openModal}) => {
+export const DescTask: React.FC<ModalProps> = ({openModal, task}) => {
     const currentYear = new Date().getFullYear();
     
     return (
