@@ -4,15 +4,22 @@ import { database } from "../firebase/firebase";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
 import { CreateModal } from "../components/Modal/CreateModal";
-import { collection, query, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { collection, query, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 
-const Home: React.FC = () => {
+interface TaskProps {
+    completed: boolean,
+    id: string,
+    taskTitle: string,
+    taskDescription: string
+};
+
+const Home: React.FC<TaskProps> = () => {
     const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
     const [allTasks, setAllTasks] = useState([]);
 
     const openModal = () => !isModalOpen ? setIsModalOpen(true) : setIsModalOpen(false);
 
-    useEffect(() => {
+    useEffect(() => {   
         const queryConsult = query(collection(database, "tasks"));
         const unSub = onSnapshot(queryConsult, (querySnapshot) => {
             let tasksArray: any = [];
@@ -23,6 +30,10 @@ const Home: React.FC = () => {
         });
         return () => unSub();
     }, []);
+
+    const handleDelete = async (id: string) => {
+        await deleteDoc(doc(database, "tasks", id));
+    };
 
     return (
         <>
@@ -35,8 +46,8 @@ const Home: React.FC = () => {
             <hr className="my-5 border border-solid border-[#0000002C]" />
             <div>
                 <h2 className="text-2xl uppercase tracking-wider mb-1">All Tasks</h2>
-                {allTasks.map((task) => (
-                    <Task task={task} />
+                {allTasks.map((task: TaskProps, key) => (
+                    <Task key={key} task={task} handleDelete={handleDelete} />
                 ))}
             </div>
         </main>
