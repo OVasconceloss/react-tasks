@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header-link {
+    @apply px-3 text-lg transition duration-500 ease-in-out border-b border-solid border-transparent hover:text-l-blue hover:border-l-blue
+}
