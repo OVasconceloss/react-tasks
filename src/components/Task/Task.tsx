@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DescTask } from "./DescTask/DescTask";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { DeleteTask } from "./DeleteTask/DeleteTask";
 
 interface TaskProps {
     task: {
@@ -15,8 +16,11 @@ interface TaskProps {
 
 export const Task: React.FC<TaskProps> = ({task, handleDelete}) => {
     const [isDescOpen, setIsDescOpen] = useState<Boolean>(false);
+    const [isDeleteOpen, setIsDeleteOpen] = useState<Boolean>(false);
 
     const openModal = () => !isDescOpen ? setIsDescOpen(true) : setIsDescOpen(false);
+
+    const openDeleteModal = () => !isDeleteOpen ? setIsDeleteOpen(true) : setIsDeleteOpen(false);
 
     return (
         <>
@@ -26,7 +30,10 @@ export const Task: React.FC<TaskProps> = ({task, handleDelete}) => {
                 <h3 className="text-lg">{task.taskTitle}</h3>
                 <div>
                     <button 
-                    className="task-button bg-red-400 hover:text-red-400 hover:border-red-400" onClick={() => handleDelete(task.id)}>
+                    className="task-button bg-red-400 hover:text-red-400 hover:border-red-400" onClick={() => {
+                        openModal();
+                        openDeleteModal();
+                    }}>
                         <FontAwesomeIcon icon={faTrash} />
                     </button>
                     <button className="task-button bg-l-blue hover:text-l-blue hover:border-l-blue">
@@ -35,6 +42,7 @@ export const Task: React.FC<TaskProps> = ({task, handleDelete}) => {
                 </div>
             </div>
             {isDescOpen && <DescTask openModal={openModal} task={task} />}
+            {isDeleteOpen && <DeleteTask openModal={openModal} openDeleteModal={openDeleteModal} task={task} handleDelete={handleDelete} />}
         </>
     );
 };
