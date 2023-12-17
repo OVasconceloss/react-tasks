@@ -7,10 +7,12 @@ import { CreateModal } from "../components/Modal/CreateModal";
 import { collection, query, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 
 interface TaskProps {
-    completed: boolean,
-    id: string,
-    taskTitle: string,
-    taskDescription: string
+    task: {
+        completed: boolean,
+        id: string,
+        taskTitle: string,
+        taskDescription: string
+    },
 };
 
 const Home: React.FC = () => {
@@ -46,7 +48,7 @@ const Home: React.FC = () => {
             <hr className="my-5 border border-solid border-[#0000002C]" />
             <div>
                 <h2 className="text-2xl uppercase tracking-wider mb-1">All Tasks</h2>
-                {allTasks.map((task: TaskProps, key) => (
+                {allTasks.map((task, key) => (
                     <Task key={key} task={task} handleDelete={handleDelete} />
                 ))}
             </div>
