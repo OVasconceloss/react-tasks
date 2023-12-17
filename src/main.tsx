@@ -1,3 +1,4 @@
+import './styles/index.css';
 import ReactDOM from 'react-dom/client';
 import { Router } from './routes/Router';
 
