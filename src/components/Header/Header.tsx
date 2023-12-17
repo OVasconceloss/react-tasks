@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
     return (
-        <header className="bg-gray-100 p-5 rounded-b-md flex flex-row justify-between items-center">
+        <header className="bg-gray-100 p-5 rounded-b-md flex flex-row justify-between items-center border-b border-solid border-[#0000002C]">
             <div className="flex flex-row items-end">
                 <h1 className="text-3xl">React Tasks</h1>
                 <nav className="mx-2 px-5">
