@@ -5,7 +5,7 @@ import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-
 export const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="bg-d-black p-2.5 rounded-t-md absolute inset-x-0 bottom-0 w-full">
+        <footer className="bg-d-black p-2.5 rounded-t-md w-full">
             <div className="flex flex-row items-center justify-between">
                 <h2 className="text-white">Copyright &copy; {currentYear} Victor Vasconcelos</h2>
                 <div>
