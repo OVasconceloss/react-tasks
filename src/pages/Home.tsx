@@ -13,7 +13,7 @@ interface TaskProps {
     taskDescription: string
 };
 
-const Home: React.FC<TaskProps> = () => {
+const Home: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
     const [allTasks, setAllTasks] = useState([]);
 
