@@ -23,6 +23,8 @@ export const CreateModal: React.FC<ModalProps> = ({openModal}) => {
             completed: false
         });
 
+        openModal();
+
         setTaskTitle("");
         setTaskDescription("");
     }
