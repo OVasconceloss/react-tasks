@@ -14,7 +14,7 @@ interface TaskProps {
     handleDelete: (id: string) => Promise<void>;
 }
 
-export const Task: React.FC<TaskProps> = ({task, handleDelete}) => {
+export const Task: React.FC<TaskProps> = ({task: { completed, id, taskTitle, taskDescription }, handleDelete}) => {
     const [isDescOpen, setIsDescOpen] = useState<Boolean>(false);
     const [isDeleteOpen, setIsDeleteOpen] = useState<Boolean>(false);
 
@@ -27,7 +27,7 @@ export const Task: React.FC<TaskProps> = ({task, handleDelete}) => {
             <div 
             className="bg-gray-100 p-5 my-8 rounded border border-solid border-[#0000002C] flex 
             justify-between items-center cursor-pointer hover:border-l-blue transition duration-500 ease-in-out" onClick={openModal}>
-                <h3 className="text-lg">{task.taskTitle}</h3>
+                <h3 className="text-lg">{taskTitle}</h3>
                 <div>
                     <button 
                     className="task-button bg-red-400 hover:text-red-400 hover:border-red-400" onClick={() => {
@@ -41,8 +41,8 @@ export const Task: React.FC<TaskProps> = ({task, handleDelete}) => {
                     </button>
                 </div>
             </div>
-            {isDescOpen && <DescTask openModal={openModal} task={task} />}
-            {isDeleteOpen && <DeleteTask openModal={openModal} openDeleteModal={openDeleteModal} task={task} handleDelete={handleDelete} />}
+            {isDescOpen && <DescTask openModal={openModal} task={{ completed, id, taskTitle, taskDescription }} />}
+            {isDeleteOpen && <DeleteTask openModal={openModal} openDeleteModal={openDeleteModal} task={{ completed, id, taskTitle, taskDescription }} handleDelete={handleDelete} />}
         </>
     );
 };
