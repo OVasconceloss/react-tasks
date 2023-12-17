@@ -1,7 +1,11 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const DescTask = () => {
+interface ModalProps {
+    openModal: () => void;
+}
+
+export const DescTask: React.FC<ModalProps> = ({openModal}) => {
     const currentYear = new Date().getFullYear();
     
     return (
@@ -10,7 +14,7 @@ export const DescTask = () => {
                 <div className="flex flex-row justify-between">
                     <h2 className="text-xl">""</h2>
                     <button>
-                        <FontAwesomeIcon icon={faXmark} />
+                        <FontAwesomeIcon icon={faXmark} onClick={openModal} />
                     </button>
                 </div>
                 <div className="text-center">
