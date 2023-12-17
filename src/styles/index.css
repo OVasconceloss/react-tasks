@@ -8,5 +8,5 @@
 }
 
 .task-button {
-    @apply w-20 p-1 mx-2 rounded border border-solid text-white
+    @apply w-20 p-1 mx-2 rounded border border-solid text-white transition duration-500 ease-in-out hover:bg-white
 }
