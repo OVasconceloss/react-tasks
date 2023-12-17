@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Modal } from "../components/Modal/Modal";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
+import { CreateModal } from "../components/Modal/CreateModal";
 
 const Home: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         </main>
         <Footer />
 
-        {isModalOpen && <Modal openModal={openModal} />}
+        {isModalOpen && <CreateModal openModal={openModal} />}
         </>
     );
 };

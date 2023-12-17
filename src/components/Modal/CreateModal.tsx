@@ -5,7 +5,7 @@ interface ModalProps {
     openModal: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ({openModal}) => {
+export const CreateModal: React.FC<ModalProps> = ({openModal}) => {
     const currentYear = new Date().getFullYear();
 
     return (
@@ -20,12 +20,14 @@ export const Modal: React.FC<ModalProps> = ({openModal}) => {
                 <div className="flex flex-col">
                     <div className="flex flex-col my-5">
                         <label htmlFor="">Task Name</label>
-                        <input className="p-1 my-2 rounded border border-solid border-[#0000002C]" type="name" name="task" placeholder="Ex: Study Javascript" />
+                        <input 
+                        className="p-1 my-2 rounded border border-solid border-[#0000002C] trasition duration-500 ease-in-out outline-none focus:border-l-blue" 
+                        type="name" name="task" placeholder="Ex: Study Javascript" />
                     </div>
                     <div className="flex flex-col my-5">
                         <label htmlFor="">Task Description</label>
                         <textarea 
-                        className="p-1 my-2 rounded border border-solid border-[#0000002C]" 
+                        className="p-1 my-2 rounded border border-solid border-[#0000002C] trasition duration-500 ease-in-out outline-none focus:border-l-blue" 
                         placeholder="Ex: Study Javascript for school" name="description" cols={30} rows={10}></textarea>
                     </div>
                 </div>
