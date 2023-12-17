@@ -1067,6 +1067,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/firebase@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.npmjs.org/@types/firebase/-/firebase-3.2.1.tgz"
+  integrity sha512-G8XgHMu2jHlElfc2xVNaYP50F0qrqeTCjgeG1v5b4SRwWG4XKC4fCuEdVZuZaMRmVygcnbRZBAo9O7RsDvmkGQ==
+  dependencies:
+    firebase "*"
+
 "@types/glob@*":
   version "8.1.0"
   resolved "https://registry.npmjs.org/@types/glob/-/glob-8.1.0.tgz"
@@ -2892,7 +2899,7 @@ firebase-tools@^13.0.2:
     winston-transport "^4.4.0"
     ws "^7.2.3"
 
-firebase@^10.7.1:
+firebase@*, firebase@^10.7.1:
   version "10.7.1"
   resolved "https://registry.npmjs.org/firebase/-/firebase-10.7.1.tgz"
   integrity sha512-Mlt7y7zQ43FtKp4SCyYie3tnrOL3UMF2XXiV4ZXMrC0d0wtcOYmABuybhkJpJCKILpdekxr39wjnaai0DZlWFg==
