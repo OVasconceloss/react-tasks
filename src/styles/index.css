@@ -6,3 +6,7 @@
 .footer-link {
     @apply px-3 text-lg transition duration-500 ease-in-out cursor-pointer border-b border-solid border-transparent hover:text-l-blue hover:border-l-blue
 }
+
+.task-button {
+    @apply w-20 p-1 mx-2 rounded border border-solid text-white
+}
