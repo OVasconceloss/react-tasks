@@ -42,7 +42,7 @@ export const Task: React.FC<TaskProps> = ({task: { completed, id, taskTitle, tas
                 </div>
             </div>
             {isDescOpen && <DescTask openModal={openModal} task={{ completed, id, taskTitle, taskDescription }} />}
-            {isDeleteOpen && <DeleteTask openModal={openModal} openDeleteModal={openDeleteModal} task={{ completed, id, taskTitle, taskDescription }} handleDelete={handleDelete} />}
+            {isDeleteOpen && <DeleteTask openDeleteModal={openDeleteModal} task={{ completed, id, taskTitle, taskDescription }} handleDelete={handleDelete} />}
         </>
     );
 };

@@ -8,13 +8,11 @@ interface DeleteTaskProps {
         taskTitle: string,
         taskDescription: string
     },
-    openModal: () => void;
     openDeleteModal: () => void;
     handleDelete: (id: string) => Promise<void>;
 };
 
-export const DeleteTask: React.FC<DeleteTaskProps> = ({task, handleDelete, openDeleteModal, openModal}) => {
-    openModal();
+export const DeleteTask: React.FC<DeleteTaskProps> = ({task, handleDelete, openDeleteModal}) => {
     const currentYear = new Date().getFullYear();
 
     return (
