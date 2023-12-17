@@ -6,15 +6,6 @@ import { Header } from "../components/Header/Header";
 import { CreateModal } from "../components/Modal/CreateModal";
 import { collection, query, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 
-interface TaskProps {
-    task: {
-        completed: boolean,
-        id: string,
-        taskTitle: string,
-        taskDescription: string
-    },
-};
-
 const Home: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
     const [allTasks, setAllTasks] = useState([]);
