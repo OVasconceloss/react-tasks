@@ -18,6 +18,8 @@
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.4",
     "autoprefixer": "^10.4.16",
+    "firebase": "^10.7.1",
+    "firebase-tools": "^13.0.2",
     "postcss": "^8.4.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
