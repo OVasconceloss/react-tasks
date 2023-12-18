@@ -38,7 +38,7 @@ export const DeleteTask: React.FC<DeleteTaskProps> = ({task, handleDelete, openD
                 <div className="text-center">
                     <h2 className="text-[0.9rem]">Copyright &copy; {currentYear} Victor Vasconcelos</h2>
                 </div>
+            </div>
         </div>
-    </div>
     );
 };
