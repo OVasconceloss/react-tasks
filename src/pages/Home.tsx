@@ -4,7 +4,7 @@ import { database } from "../firebase/firebase";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
 import { CreateModal } from "../components/Modal/CreateModal";
-import { collection, query, onSnapshot, doc, deleteDoc } from "firebase/firestore";
+import { collection, query, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 const Home: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
@@ -28,6 +28,13 @@ const Home: React.FC = () => {
         await deleteDoc(doc(database, "tasks", id));
     };
 
+    const handleEdit = async (id: string, taskTitle: string, taskDescription: string) => {
+        await updateDoc(doc(database, "tasks", id), {
+            taskTitle: taskTitle,
+            taskDescription: taskDescription
+        });
+    }
+
     return (
         <>
         <Header />
@@ -40,7 +47,7 @@ const Home: React.FC = () => {
             <div>
                 <h2 className="text-2xl uppercase tracking-wider mb-1">All Tasks</h2>
                 {allTasks.map((task, key) => (
-                    <Task key={key} task={task} handleDelete={handleDelete} />
+                    <Task key={key} task={task} handleDelete={handleDelete} handleEdit={handleEdit} />
                 ))}
             </div>
         </main>
