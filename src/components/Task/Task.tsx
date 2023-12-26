@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DescTask } from "./DescTask/DescTask";
+import { EditTask } from "./EditTask/EditTask";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { DeleteTask } from "./DeleteTask/DeleteTask";
@@ -12,13 +13,17 @@ interface TaskProps {
         taskDescription: string
     },
     handleDelete: (id: string) => Promise<void>;
+    handleEdit: (id: string, taskTitle: string, taskDescription: string) => Promise<void>;
 }
 
-export const Task: React.FC<TaskProps> = ({task: { completed, id, taskTitle, taskDescription }, handleDelete}) => {
+export const Task: React.FC<TaskProps> = ({task: { completed, id, taskTitle, taskDescription }, handleDelete, handleEdit}) => {
     const [isDescOpen, setIsDescOpen] = useState<Boolean>(false);
+    const [isEditOpen, setIsEditOpen] = useState<Boolean>(false);
     const [isDeleteOpen, setIsDeleteOpen] = useState<Boolean>(false);
 
     const openModal = () => !isDescOpen ? setIsDescOpen(true) : setIsDescOpen(false);
+
+    const openEditModal = () => !isEditOpen ? setIsEditOpen(true) : setIsEditOpen(false);
 
     const openDeleteModal = () => !isDeleteOpen ? setIsDeleteOpen(true) : setIsDeleteOpen(false);
 
@@ -36,7 +41,10 @@ export const Task: React.FC<TaskProps> = ({task: { completed, id, taskTitle, tas
                     }}>
                         <FontAwesomeIcon icon={faTrash} />
                     </button>
-                    <button className="task-button bg-l-blue hover:text-l-blue hover:border-l-blue">
+                    <button className="task-button bg-l-blue hover:text-l-blue hover:border-l-blue" onClick={() => {
+                        openModal();
+                        openEditModal();
+                    }}>
                         <FontAwesomeIcon icon={faPencil} />
                     </button>
                 </div>
