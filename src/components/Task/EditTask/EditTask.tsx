@@ -45,7 +45,7 @@ export const EditTask: React.FC<EditTaskProps> = ({openEditModal, task, handleEd
                             <label htmlFor="">Task Name</label>
                             <input 
                             className="p-1 my-2 rounded border border-solid border-[#0000002C] trasition duration-500 ease-in-out outline-none focus:border-l-blue" 
-                            type="name" name="task" placeholder="Ex: Study Javascript" value={taskTitle} onChange={(event) => setTaskTitle(event.target.value)} />
+                            type="name" name="task" placeholder="Ex: Study Javascript" value={taskTitle} onChange={(event) => setTaskTitle(event.target.value)}/>
                         </div>
                         <div className="flex flex-col my-5">
                             <label htmlFor="">Task Description</label>
