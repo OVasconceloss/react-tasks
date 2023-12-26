@@ -1,14 +1,19 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const EditTask: React.FC = () => {
+interface TaskProps {
+    openEditModal: () => void;
+    handleEdit: (id: string, taskTitle: string, taskDescription: string) => Promise<void>;
+}
+
+export const EditTask: React.FC<TaskProps> = ({openEditModal, }) => {
     const currentYear = new Date().getFullYear();
     
     return (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white w-1/2 p-8 rounded shadow-md">
                 <div className="flex flex-row justify-between">
-                    <h2 className="text-xl">Delete Task</h2>
+                    <h2 className="text-xl">Edit Task</h2>
                     <button>
                         <FontAwesomeIcon icon={faXmark} />
                     </button>
