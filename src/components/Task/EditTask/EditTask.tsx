@@ -26,6 +26,8 @@ export const EditTask: React.FC<EditTaskProps> = ({openEditModal, task, handleEd
 
         setTaskTitle("");
         setTaskDescription("");
+
+        openEditModal(false);
     }
     
     return (
