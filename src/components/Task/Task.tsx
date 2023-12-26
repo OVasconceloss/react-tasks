@@ -31,25 +31,20 @@ export const Task: React.FC<TaskProps> = ({task: { completed, id, taskTitle, tas
         <>
             <div 
             className="bg-gray-100 p-5 my-8 rounded border border-solid border-[#0000002C] flex 
-            justify-between items-center cursor-pointer hover:border-l-blue transition duration-500 ease-in-out" onClick={openModal}>
+            justify-between items-center cursor-pointer hover:border-l-blue transition duration-500 ease-in-out">
                 <h3 className="text-lg">{taskTitle}</h3>
                 <div>
                     <button 
-                    className="task-button bg-red-400 hover:text-red-400 hover:border-red-400" onClick={() => {
-                        openModal();
-                        openDeleteModal();
-                    }}>
+                    className="task-button bg-red-400 hover:text-red-400 hover:border-red-400" onClick={() => {openDeleteModal();}}>
                         <FontAwesomeIcon icon={faTrash} />
                     </button>
-                    <button className="task-button bg-l-blue hover:text-l-blue hover:border-l-blue" onClick={() => {
-                        openModal();
-                        openEditModal();
-                    }}>
+                    <button className="task-button bg-l-blue hover:text-l-blue hover:border-l-blue" onClick={() => {openEditModal();}}>
                         <FontAwesomeIcon icon={faPencil} />
                     </button>
                 </div>
             </div>
             {isDescOpen && <DescTask openModal={openModal} task={{ completed, id, taskTitle, taskDescription }} />}
+            {isEditOpen && <EditTask openEditModal={openEditModal} handleEdit={handleEdit} task={{completed, id, taskTitle, taskDescription}} />}
             {isDeleteOpen && <DeleteTask openDeleteModal={openDeleteModal} task={{ completed, id, taskTitle, taskDescription }} handleDelete={handleDelete} />}
         </>
     );
